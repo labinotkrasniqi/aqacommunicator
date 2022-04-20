@@ -61,3 +61,7 @@ Then(/^The user should appear muted$/, async() =>{
 Then(/^The user should appear unmuted$/, async() =>{
     expect(ChatPage.muteButton).toHaveAttribute('src', ChatPage.unmutedIconImage)
 });
+
+Then(/^I should see the pinned messages drawer$/, async() =>{
+    chaiExpect(ChatPage.pinnedMessagesDrawer).to.exist
+});

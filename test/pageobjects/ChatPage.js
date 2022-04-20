@@ -21,7 +21,11 @@ class ChatPage{
     }
 
     get pinButton(){
-        return $('.pinned-icon')
+        return $('#pinned-button')
+    }
+
+    get pinnedMessagesDrawer() {
+        return $('.pinned-sidebar')
     }
 
     get conversationContainer() {
