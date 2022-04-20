@@ -62,3 +62,7 @@ When(/^I click the mute button$/, async()=>{
 When(/^I click the view pinned messages button$/, async()=>{
     await ChatPage.pinButton.click();
 })
+
+When(/^I click the close button on the pinned messages drawer$/, async()=>{
+    await ChatPage.closePinnedMessagesButton.click();
+})

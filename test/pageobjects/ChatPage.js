@@ -24,8 +24,16 @@ class ChatPage{
         return $('#pinned-button')
     }
 
+    get closePinnedMessagesButton(){
+        return $('div.header > img')
+    }
+
     get pinnedMessagesDrawer() {
         return $('.pinned-sidebar')
+    }
+
+    get pinnedMessagesDrawerHeader() {
+        return $('div.header > div')
     }
 
     get conversationContainer() {

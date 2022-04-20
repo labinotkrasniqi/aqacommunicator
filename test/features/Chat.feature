@@ -13,21 +13,17 @@ Feature: Chat
       Then I should see the typed message
 
    Scenario: Send message
-      Given I am on the chat page
       When I send a message
       Then I should see sent message in the chat history
 
    Scenario: Mute user
-      Given I am on the chat page
       When I click the mute button
       Then The user should appear muted
 
    Scenario: Unmute user
-      Given I am on the chat page
       When I click the mute button
       Then The user should appear unmuted
 
    Scenario: View pinned messages
-      Given I am on the chat page
       When I click the view pinned messages button
       Then I should see the pinned messages drawer

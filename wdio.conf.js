@@ -70,7 +70,7 @@ exports.config = {
                         '--window-size=1920,720',
                         '--use-fake-ui-for-media-stream',
                         '--use-fake-device-for-media-stream ',
-                        // '--headless',
+                        '--headless',
                         '--no-sandbox',
                         '--disable-gpu',
                         '--disable-setuid-sandbox',

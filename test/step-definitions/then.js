@@ -65,3 +65,7 @@ Then(/^The user should appear unmuted$/, async() =>{
 Then(/^I should see the pinned messages drawer$/, async() =>{
     chaiExpect(ChatPage.pinnedMessagesDrawer).to.exist
 });
+
+Then(/^I should not see pinned messages$/, async() =>{
+    expect(ChatPage.pinnedMessagesDrawerHeader).to.be.null
+});
