@@ -1,6 +1,7 @@
 import { Then } from '@cucumber/cucumber';
 import LoginPage from '../pageobjects/LoginPage'
 import VideoPage from '../pageobjects/VideoPage'
+import ChatPage from '../pageobjects/ChatPage'
 
 //User login
 Then(/^I should be logged in$/, async () => {
@@ -44,7 +45,19 @@ Then(/^The microphone should change state$/, async() =>{
     await VideoPage.micID.click()
 });
 
+Then(/^I should see the typed message$/, async() =>{
+    expect(ChatPage.messageBox).toHaveValue('someone', { ignoreCase: true })
+});
 
+Then(/^I should see sent message in the chat history$/, async() =>{
+    expect(ChatPage.conversationContainer).toHaveTextContaining('someone')
+    expect(ChatPage.messageBox).toHaveValue('', { ignoreCase: true })
+});
 
+Then(/^The user should appear muted$/, async() =>{
+    expect(ChatPage.muteButton).toHaveAttribute('src', ChatPage.mutedIconImage)
+});
 
-
+Then(/^The user should appear unmuted$/, async() =>{
+    expect(ChatPage.muteButton).toHaveAttribute('src', ChatPage.unmutedIconImage)
+});

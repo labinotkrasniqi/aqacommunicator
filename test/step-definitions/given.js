@@ -18,7 +18,6 @@ Given(/^I am logged In$/, async() =>{
 
 
 
-
 // Turning off mic and camera
 Given(/^I am in the looby-camera$/, async() =>{
     await Host.url('https://chat.staging.broadvoice.io/video-app/room')
@@ -47,11 +46,10 @@ Given(/^I am in the looby$/, async() =>{
 });
 
 
-
-//
 Given(/^I search for user$/, async()=>{
-
-    await ChatPage.searchUser("Chat Automation 2")
-    browser.keys("\uE007"); 
-
+    await ChatPage.searchUser("Chat Automation 2");
 })
+
+Given(/^I am on the chat page$/, async()=>{
+    await ChatPage.messageBoxIsDisplayed();
+});

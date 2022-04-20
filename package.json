@@ -6,6 +6,7 @@
   "scripts": {
     "Calls": "npx wdio run ./wdio.conf.js --spec ./features/**/Calls.feature",
     "Onboarding": "npx wdio run ./wdio.conf.js --spec ./test/features/**/Onboarding.feature",
+    "Chat": "npx wdio run ./wdio.conf.js --spec ./test/features/**/Chat.feature",
     "test": "wdio"
   },
   "author": "Labinot Krasniqi",

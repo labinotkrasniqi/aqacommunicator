@@ -70,7 +70,7 @@ exports.config = {
                         '--window-size=1920,720',
                         '--use-fake-ui-for-media-stream',
                         '--use-fake-device-for-media-stream ',
-                        '--headless',
+                        // '--headless',
                         '--no-sandbox',
                         '--disable-gpu',
                         '--disable-setuid-sandbox',
@@ -139,7 +139,7 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    services: config.serviceDocker,
+    services: config.serviceLocal,
 
     // This part will be called upon only when config.serviceDocker is used.
     hostname: 'selenium',

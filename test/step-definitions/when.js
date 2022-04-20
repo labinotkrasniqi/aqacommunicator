@@ -1,6 +1,8 @@
 import {When} from '@cucumber/cucumber';
 import LoginPage from '../pageobjects/LoginPage'
 import VideoPage from '../pageobjects/VideoPage'
+import ChatPage from '../pageobjects/ChatPage'
+
 
 //User login
 When(/^I log in with a test user$/, async () => {
@@ -44,3 +46,15 @@ When(/^I click on my microphone$/, async() =>{
     await VideoPage.micID.click()
     await Host.pause(1000)
 });
+
+When(/^I type a message$/, async()=>{
+    await ChatPage.typeMessage("someone");
+})
+
+When(/^I send a message$/, async()=>{
+    await ChatPage.sendMessage();
+})
+
+When(/^I click the mute button$/, async()=>{
+    await ChatPage.muteButton.click();
+})
