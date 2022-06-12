@@ -4,6 +4,9 @@ class ChatPage{
 
     unmutedIconImage = '/03fb6287d1b21094ecbb0a9cfd63ab89.svg'
 
+    url = 'https://wwww.labinot.com'
+
+
     get searchBar(){
         return $('div.default.text')
     }
@@ -42,6 +45,14 @@ class ChatPage{
 
     get muteButton() {
         return $('#mute-person')
+    }
+
+    get sentLink() {
+        return $(`//*[contains(text(),${this.url})]`)
+    }
+
+    get fileUploadField() {
+        return $('#embedpollfileinput')
     }
 
     async searchUser(username) {

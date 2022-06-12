@@ -6,7 +6,7 @@ import ChatPage from '../pageobjects/ChatPage'
 //User login
 Then(/^I should be logged in$/, async () => {
     await Host.pause(2000)
-    await expect(Host).toHaveUrlContaining("chat/conversations")
+    await expect(Host).toHaveUrlContaining("chat")
 
 });
 
@@ -68,4 +68,18 @@ Then(/^I should see the pinned messages drawer$/, async() =>{
 
 Then(/^I should not see pinned messages$/, async() =>{
     expect(ChatPage.pinnedMessagesDrawerHeader).to.be.null
+});
+
+Then(/^The url should open on a new page$/, async() =>{
+    expect(ChatPage.sentLink).toHaveAttribute('target', '_blank')
+});
+
+Then(/^I should see sent emoji in the chat history$/, async() =>{
+    expect(ChatPage.conversationContainer).toHaveTextContaining('🤖')
+    expect(ChatPage.messageBox).toHaveValue('', { ignoreCase: true })
+});
+
+Then(/^I should see sent file in the chat history$/, async() =>{
+    expect(ChatPage.conversationContainer).toHaveTextContaining('imgg.jpg')
+    expect(ChatPage.messageBox).toHaveValue('', { ignoreCase: true })
 });
