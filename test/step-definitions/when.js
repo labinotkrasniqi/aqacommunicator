@@ -3,7 +3,6 @@ import LoginPage from '../pageobjects/LoginPage'
 import VideoPage from '../pageobjects/VideoPage'
 import ChatPage from '../pageobjects/ChatPage'
 
-
 //User login
 When(/^I log in with a test user$/, async () => {
     await LoginPage.login('labinnot.krasniqi+chata1@gmail.com','Cookiemaster!234')
@@ -55,6 +54,11 @@ When(/^I send a message$/, async()=>{
     await ChatPage.sendMessage();
 })
 
+When(/^I send an emoji$/, async()=>{
+    await ChatPage.typeMessage('🤖');
+    await ChatPage.sendMessage();
+})
+
 When(/^I click the mute button$/, async()=>{
     await ChatPage.muteButton.click();
 })
@@ -65,4 +69,18 @@ When(/^I click the view pinned messages button$/, async()=>{
 
 When(/^I click the close button on the pinned messages drawer$/, async()=>{
     await ChatPage.closePinnedMessagesButton.click();
+})
+
+When(/^I send a url message$/, async()=>{
+    await ChatPage.typeMessage(ChatPage.url);
+    await ChatPage.sendMessage();
+})
+
+When(/^I upload and send a file$/, async()=>{
+    const path = require('path')
+    const filePath = path.join(__dirname, '../files/imgg.jpg');
+    const remoteFilePath = browser.uploadFile(filePath);
+    ChatPage.fileUploadField.setValue(remoteFilePath);
+    await Host.pause(3000)
+    await ChatPage.sendMessage();
 })

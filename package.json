@@ -23,8 +23,8 @@
     "@wdio/selenium-standalone-service": "^7.16.16",
     "@wdio/spec-reporter": "^7.9.0",
     "chai": "^4.3.6",
-    "chromedriver": "^99.0.0",
-    "wdio-chromedriver-service": "^7.2.0",
+    "chromedriver": "^102.0.0",
+    "wdio-chromedriver-service": "^7.3.2",
     "wdio-docker-service": "^3.2.0"
   }
 }
