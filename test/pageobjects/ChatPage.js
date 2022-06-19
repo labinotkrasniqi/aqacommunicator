@@ -4,8 +4,11 @@ class ChatPage{
 
     unmutedIconImage = '/03fb6287d1b21094ecbb0a9cfd63ab89.svg'
 
-    url = 'https://wwww.labinot.com'
+    favoriteIconImage = '/aa13d30453972fb8c7684f8404575d74.svg'
 
+    unfavoriteIconImage = '/1f29ab476a44be2f15b39c26b98c69d2.svg'
+
+    url = 'https://wwww.labinot.com'
 
     get searchBar(){
         return $('div.default.text')
@@ -23,8 +26,16 @@ class ChatPage{
         return $('#mute-person')
     }
 
+    get muteGroupButton(){
+        return $('.inline-block > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > button')
+    }
+
     get pinButton(){
         return $('#pinned-button')
+    }
+
+    get favoriteButton(){
+        return $('#add-person-favorites')
     }
 
     get closePinnedMessagesButton(){
@@ -52,7 +63,19 @@ class ChatPage{
     }
 
     get fileUploadField() {
-        return $('#embedpollfileinput')
+        return $('#embedpollfileinput');
+    }
+
+    get chatHeader() {
+        return $('.channel-header-topic');
+    }
+
+    get searchDropdown() {
+        return $('i.dropdown')
+    }
+
+    get sentMessage() {
+        return $('#ccig_2022-06-19 > div:nth-child(2) > div:nth-child(5) > div:nth-child(2) > div:nth-child(2) > div')
     }
 
     async searchUser(username) {
@@ -70,6 +93,15 @@ class ChatPage{
 
     async sendMessage() {
         await this.sendButton.click()
+    }
+
+    async hoverMessage(message) {
+        await message.moveTo();
+    }
+
+    async selectSavedGroup() {
+        await this.searchDropdown.click()
+        await $('div.visible:nth-child(5) > div:nth-child(2) > div').click()
     }
 
 }
