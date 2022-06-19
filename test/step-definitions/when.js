@@ -63,6 +63,10 @@ When(/^I click the mute button$/, async()=>{
     await ChatPage.muteButton.click();
 })
 
+When(/^I click the mute group button$/, async()=>{
+    await ChatPage.muteGroupButton.click();
+})
+
 When(/^I click the view pinned messages button$/, async()=>{
     await ChatPage.pinButton.click();
 })
@@ -80,7 +84,16 @@ When(/^I upload and send a file$/, async()=>{
     const path = require('path')
     const filePath = path.join(__dirname, '../files/imgg.jpg');
     const remoteFilePath = browser.uploadFile(filePath);
-    ChatPage.fileUploadField.setValue(remoteFilePath);
+    await ChatPage.fileUploadField.setValue(remoteFilePath);
     await Host.pause(3000)
     await ChatPage.sendMessage();
+})
+
+When(/^I hover over a message$/, async()=>{
+    await ChatPage.hoverMessage(ChatPage.sentMessage)
+    await Host.pause(3000)
+})
+
+When(/^I click the favorite button$/, async()=>{
+    await ChatPage.favoriteButton.click();
 })

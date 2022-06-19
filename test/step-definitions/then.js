@@ -58,6 +58,14 @@ Then(/^The user should appear muted$/, async() =>{
     expect(ChatPage.muteButton).toHaveAttribute('src', ChatPage.mutedIconImage)
 });
 
+Then(/^The group should appear unmuted$/, async() =>{
+    expect(ChatPage.muteGroupButton).toHaveAttribute('src', ChatPage.unmutedIconImage)
+});
+
+Then(/^The group should appear muted$/, async() =>{
+    expect(ChatPage.muteGroupButton).toHaveAttribute('src', ChatPage.mutedIconImage)
+});
+
 Then(/^The user should appear unmuted$/, async() =>{
     expect(ChatPage.muteButton).toHaveAttribute('src', ChatPage.unmutedIconImage)
 });
@@ -82,4 +90,12 @@ Then(/^I should see sent emoji in the chat history$/, async() =>{
 Then(/^I should see sent file in the chat history$/, async() =>{
     expect(ChatPage.conversationContainer).toHaveTextContaining('imgg.jpg')
     expect(ChatPage.messageBox).toHaveValue('', { ignoreCase: true })
+});
+
+Then(/^The user should appear favorited$/, async() =>{
+    expect(ChatPage.favoriteButton).toHaveAttribute('src', ChatPage.favoriteIconImage)
+});
+
+Then(/^The user should appear unfavorited$/, async() =>{
+    expect(ChatPage.favoriteButton).toHaveAttribute('src', ChatPage.unfavoriteIconImage)
 });

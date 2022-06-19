@@ -53,3 +53,8 @@ Given(/^I search for user$/, async()=>{
 Given(/^I am on the chat page$/, async()=>{
     await ChatPage.messageBoxIsDisplayed();
 });
+
+Given(/^I am on a group chat page$/, async()=>{
+    await ChatPage.selectSavedGroup();
+    expect(ChatPage.chatHeader).toHaveText('group_test2');
+});
