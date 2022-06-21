@@ -3,6 +3,8 @@ import LoginPage from '../pageobjects/LoginPage'
 import VideoPage from '../pageobjects/VideoPage'
 import ChatPage from '../pageobjects/ChatPage'
 
+const path = require('path');
+
 //User login
 When(/^I log in with a test user$/, async () => {
     await LoginPage.login('labinnot.krasniqi+chata1@gmail.com','Cookiemaster!234')
@@ -55,8 +57,10 @@ When(/^I send a message$/, async()=>{
 })
 
 When(/^I send an emoji$/, async()=>{
-    await ChatPage.typeMessage('🤖');
+    await ChatPage.messageBox.click()
+    browser.keys('🤖')
     await ChatPage.sendMessage();
+
 })
 
 When(/^I click the mute button$/, async()=>{
@@ -81,9 +85,8 @@ When(/^I send a url message$/, async()=>{
 })
 
 When(/^I upload and send a file$/, async()=>{
-    const path = require('path')
-    const filePath = path.join(__dirname, '../files/imgg.jpg');
-    const remoteFilePath = browser.uploadFile(filePath);
+    const filePath = 'test/files/imgg.jpg'
+    const remoteFilePath = await browser.uploadFile(filePath)
     await ChatPage.fileUploadField.setValue(remoteFilePath);
     await Host.pause(3000)
     await ChatPage.sendMessage();
