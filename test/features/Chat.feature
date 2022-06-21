@@ -24,13 +24,13 @@ Feature: Chat
       When I click the mute button
       Then The user should appear unmuted
 
-   Scenario: Unfavorite user
-      When I click the favorite button
-      Then The user should appear unfavorited
-
    Scenario: Favorite user
       When I click the favorite button
       Then The user should appear favorited
+
+   Scenario: Unfavorite user
+      When I click the favorite button
+      Then The user should appear unfavorited
 
    Scenario: [BHC-T75] View pinned messages
       When I click the view pinned messages button
@@ -41,22 +41,21 @@ Feature: Chat
       Then I should see sent emoji in the chat history
 
    Scenario: [BHC-T52] URLs sent should open in a new page
-      Given I am on the chat page
       When I send a url message
       Then The url should open on a new page
 
    Scenario: [BHC-T71] Attach and send file
-      Given I am on the chat page
       When I upload and send a file
       Then I should see sent file in the chat history
 
-   Scenario: [BHC-T73] Pin Message
-      Given I am on the chat page
-      When I hover over a message
-      # Then I should see message actions
+   # # Scenario: [BHC-T73] Pin Message
+   # #    Given I am on the chat page
+   # #    When I hover over a message
+   # #    # Then I should see message actions
 
    Scenario: [BHC-T98] Send message to group
-      Given I am on a group chat page
+      Given I refresh the page
+      And I am on a group chat page
       When I type a message
       And I send a message
       Then I should see sent message in the chat history
@@ -69,13 +68,13 @@ Feature: Chat
       When I click the mute group button
       Then The group should appear unmuted
 
-   Scenario: Unfavorite group
-      When I click the favorite button
-      Then The user should appear unfavorited
-
    Scenario: Favorite group
       When I click the favorite button
       Then The user should appear favorited
+
+   Scenario: Unfavorite group
+      When I click the favorite button
+      Then The user should appear unfavorited
    
    Scenario: [BHC-T106] View pinned group messages
       When I click the view pinned messages button

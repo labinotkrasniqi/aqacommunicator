@@ -11,7 +11,7 @@ class ChatPage{
     url = 'https://wwww.labinot.com'
 
     get searchBar(){
-        return $('div.default.text')
+        return $('.default')
     }
 
     get messageBox(){
@@ -74,13 +74,21 @@ class ChatPage{
         return $('i.dropdown')
     }
 
+    get expandedSearchBar () {
+        return $('div.active:nth-child(1)')
+    }
+
+    get displayedResult() {
+        return $('.selected');
+    }
+
     get sentMessage() {
         return $('#ccig_2022-06-19 > div:nth-child(2) > div:nth-child(5) > div:nth-child(2) > div:nth-child(2) > div')
     }
 
     async searchUser(username) {
-        await this.searchBar.click()
         await this.searchBar.setValue(username)
+        await Host.pause(3000)
     }
 
     async typeMessage(text) {

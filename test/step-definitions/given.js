@@ -9,14 +9,16 @@ Given(/^I'm on the login page$/, async () => {
 
 });
 
+//User login
+Given(/^I refresh the page$/, async () => {
+    await Host.url('https://chat.staging.broadvoice.io/')
 
+});
 
 // User logout
 Given(/^I am logged In$/, async() =>{ 
     await Host.url('https://chat.staging.broadvoice.io/')
 });
-
-
 
 // Turning off mic and camera
 Given(/^I am in the looby-camera$/, async() =>{
@@ -51,10 +53,22 @@ Given(/^I search for user$/, async()=>{
 })
 
 Given(/^I am on the chat page$/, async()=>{
+    await Host.pause(10000)
+    await ChatPage.searchBar.click();
+    await Host.pause(4000)
+    browser.keys('Chat Automation 2')
+    await Host.pause(7000)
+    await ChatPage.displayedResult.click();
+    await Host.pause(5000)
     await ChatPage.messageBoxIsDisplayed();
 });
 
 Given(/^I am on a group chat page$/, async()=>{
-    await ChatPage.selectSavedGroup();
-    expect(ChatPage.chatHeader).toHaveText('group_test2');
+    await Host.pause(5000)
+    await ChatPage.searchBar.click();
+    await Host.pause(4000)
+    browser.keys('group')
+    await ChatPage.displayedResult.click();
+    await Host.pause(5000)
+    await ChatPage.messageBoxIsDisplayed();
 });
