@@ -50,6 +50,27 @@ class ChatPage{
         return $('div.header > div')
     }
 
+    get pinnedMessagesCountDisplayed() {
+        const count = $('div.header > div:nth-child(1) > span:nth-child(2)').getText()
+        return count
+    }
+
+    get pinnedMessagesLength() {
+        return $('div.pinned-mess-box').length
+    }
+
+    get viewFirstPinnedMessage() {
+        return $('div.pinned-mess-box:nth-child(1) > div:nth-child(3)')
+    }
+
+    get firstPinnedMessageText() {
+        return $('div.pinned-mess-box:nth-child(1) > div:nth-child(2)')
+    }
+
+    get unpinMessageFromDrawerButton() {
+        return $('div.pinned-mess-box:nth-child(1) > div:nth-child(1) > img')
+    }
+
     get conversationContainer() {
         return $('.context-content-items-list')
     }
