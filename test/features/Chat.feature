@@ -32,10 +32,6 @@ Feature: Chat
       When I click the favorite button
       Then The user should appear unfavorited
 
-   Scenario: [BHC-T75] View pinned messages
-      When I click the view pinned messages button
-      Then I should see the pinned messages drawer
-
    Scenario: [BHC-T61] Send emoji
       When I send an emoji
       Then I should see sent emoji in the chat history
@@ -48,10 +44,25 @@ Feature: Chat
       When I upload and send a file
       Then I should see sent file in the chat history
 
-   # # Scenario: [BHC-T73] Pin Message
-   # #    Given I am on the chat page
-   # #    When I hover over a message
-   # #    # Then I should see message actions
+   Scenario: [BHC-T73] Pin Message
+      Given I am on the chat page
+      When I hover over a message
+      Then I should see message actions
+
+   Scenario: [BHC-T75] View pinned messages
+      Given I am on the chat page
+      When I click the view pinned messages button
+      Then I should see the pinned messages drawer
+   
+   Scenario: [BHC-T75] Unpin message from pinned messages drawer
+      When I click the view pinned messages button
+      And I un-pin a pinned message
+
+   Scenario: [BHC-T117] Viewing pinned message should redirect to that message
+      When I click to view a pinned message
+      Then I should see clicked message in the chat history
+
+### Group Test cases
 
    Scenario: [BHC-T98] Send message to group
       Given I refresh the page

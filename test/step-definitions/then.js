@@ -6,8 +6,7 @@ import ChatPage from '../pageobjects/ChatPage'
 //User login
 Then(/^I should be logged in$/, async () => {
     await Host.pause(2000)
-    await expect(Host).toHaveUrlContaining("chat")
-
+    await expect(Host).toHaveUrlContaining('chat')
 });
 
 Then(/^Login is unsucessful$/, async () => {
@@ -17,7 +16,7 @@ Then(/^Login is unsucessful$/, async () => {
 
 // User logout
 Then(/^I should be on the logging page$/, async() =>{
-    expect(Host).toHaveUrlContaining('login');
+    await expect(Host).toHaveUrlContaining('login');
 })
 
 //Private meeting
@@ -98,4 +97,8 @@ Then(/^The user should appear favorited$/, async() =>{
 
 Then(/^The user should appear unfavorited$/, async() =>{
     expect(ChatPage.favoriteButton).toHaveAttribute('src', ChatPage.unfavoriteIconImage)
+});
+
+Then(/^I should see clicked message in the chat history$/, async() =>{
+    expect(ChatPage.conversationContainer).toHaveTextContaining(ChatPage.firstPinnedMessageText.getText())
 });

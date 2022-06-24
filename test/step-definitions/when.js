@@ -93,10 +93,23 @@ When(/^I upload and send a file$/, async()=>{
 })
 
 When(/^I hover over a message$/, async()=>{
-    await ChatPage.hoverMessage(ChatPage.sentMessage)
-    await Host.pause(3000)
+    const message = '/html/body/div[1]/div/div[2]/div[4]/div[3]/div/div[12]/div/div[12]'
+    await $(message).scrollIntoView();
+    await $(message).moveTo()
+    await Host.pause(1000000).saveScreenshot();
 })
 
 When(/^I click the favorite button$/, async()=>{
     await ChatPage.favoriteButton.click();
+})
+
+When(/^I un-pin a pinned message$/, async()=>{
+    const pinnedCount = await ChatPage.pinnedMessagesCountDisplayed
+    if (pinnedCount > 0) {
+        await ChatPage.unpinMessageFromDrawerButton.click();
+    }
+})
+
+When(/^I click to view a pinned message$/, async()=>{
+    await ChatPage.viewFirstPinnedMessage.click();
 })
