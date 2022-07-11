@@ -1,4 +1,4 @@
-import {When} from '@cucumber/cucumber';
+import { When } from '@cucumber/cucumber';
 import LoginPage from '../pageobjects/LoginPage'
 import VideoPage from '../pageobjects/VideoPage'
 import ChatPage from '../pageobjects/ChatPage'
@@ -18,6 +18,9 @@ When(/^I log in with Chat1$/, async() =>{
     await LoginPage.login('labinnot.krasniqi+chata1@gmail.com','Cookiemaster!234')
 })
 
+When(/^I log in with Chat2$/, async() =>{
+    await LoginPage.login('labinnot.krasniqi+chata2@gmail.com','Cookiemaster!234')
+})
 
 //User logout
 When(/^User logs out$/, async() =>{
@@ -112,4 +115,16 @@ When(/^I un-pin a pinned message$/, async()=>{
 
 When(/^I click to view a pinned message$/, async()=>{
     await ChatPage.viewFirstPinnedMessage.click();
+})
+
+When(/^I message Chat1 user$/, async()=>{
+    await ChatPage.messageUser('Chat Automation 1', ChatPage.chatMessage);
+})
+
+When(/^I message Chat2 user$/, async()=>{
+    await ChatPage.messageUser('Chat Automation 2', ChatPage.chatMessage);
+})
+
+When(/^I find the recipient$/, async()=>{
+    await ChatPage.findUser('Chat Automation 1');
 })

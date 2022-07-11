@@ -8,6 +8,8 @@ class ChatPage{
 
     unfavoriteIconImage = '/1f29ab476a44be2f15b39c26b98c69d2.svg'
 
+    chatMessage = 'test message'
+
     url = 'https://wwww.labinot.com'
 
     get searchBar(){
@@ -133,5 +135,28 @@ class ChatPage{
         await $('div.visible:nth-child(5) > div:nth-child(2) > div').click()
     }
 
+    async messageUser(username, message) {
+        await Host.pause(10000)
+        await this.searchBar.click();
+        await Host.pause(4000)
+        browser.keys(username)
+        await Host.pause(7000)
+        await this.displayedResult.click();
+        await Host.pause(5000)
+        await this.messageBoxIsDisplayed();
+        await this.typeMessage(message);
+        await this.sendMessage
+    }
+
+
+    async findUser(username) {
+        await Host.pause(10000)
+        await this.searchBar.click();
+        await Host.pause(4000)
+        browser.keys(username)
+        await Host.pause(7000)
+        await this.displayedResult.click();
+        await Host.pause(5000)
+    }
 }
 export default new ChatPage()

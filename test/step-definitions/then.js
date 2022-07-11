@@ -102,3 +102,7 @@ Then(/^The user should appear unfavorited$/, async() =>{
 Then(/^I should see clicked message in the chat history$/, async() =>{
     expect(ChatPage.conversationContainer).toHaveTextContaining(ChatPage.firstPinnedMessageText.getText())
 });
+
+Then(/^I should see my sent message in chat history$/, async() =>{
+    expect(ChatPage.conversationContainer).toHaveTextContaining(ChatPage.chatMessage)
+});

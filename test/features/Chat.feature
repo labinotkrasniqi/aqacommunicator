@@ -44,10 +44,10 @@ Feature: Chat
       When I upload and send a file
       Then I should see sent file in the chat history
 
-   Scenario: [BHC-T73] Pin Message
-      Given I am on the chat page
-      When I hover over a message
-      Then I should see message actions
+   # Scenario: [BHC-T73] Pin Message
+   #    Given I am on the chat page
+   #    When I hover over a message
+   #    Then I should see message actions
 
    Scenario: [BHC-T75] View pinned messages
       Given I am on the chat page
@@ -61,8 +61,15 @@ Feature: Chat
    Scenario: [BHC-T117] Viewing pinned message should redirect to that message
       When I click to view a pinned message
       Then I should see clicked message in the chat history
+   
+   Scenario: [BHC-T51] Receive message from user
+      When I message Chat2 user
+      And User logs out
+      And I log in with Chat2
+      And I find the recipient
+      Then I should see my sent message in chat history
 
-### Group Test cases
+### Group Chat test cases
 
    Scenario: [BHC-T98] Send message to group
       Given I refresh the page
