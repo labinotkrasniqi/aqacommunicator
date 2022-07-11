@@ -1,11 +1,11 @@
 class LoginPage {
 
     get email() {
-        return $('input[name="username"]');
+        return $('#username');
     }
 
     get password() {
-        return $('input[name="password"]');
+        return $('#password');
     }
 
     get sumbitButton() {
