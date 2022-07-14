@@ -57,6 +57,7 @@ Feature: Chat
       Then I should see clicked message in the chat history
    
    Scenario: [BHC-T51] Receive message from user
+      Given I refresh the page
       When I message Chat2 user
       And User logs out
       And I log in with Chat2
