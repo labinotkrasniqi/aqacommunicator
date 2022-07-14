@@ -44,11 +44,6 @@ Feature: Chat
       When I upload and send a file
       Then I should see sent file in the chat history
 
-   # Scenario: [BHC-T73] Pin Message
-   #    Given I am on the chat page
-   #    When I hover over a message
-   #    Then I should see message actions
-
    Scenario: [BHC-T75] View pinned messages
       When I click the view pinned messages button
       Then I should see the pinned messages drawer
