@@ -50,7 +50,6 @@ Feature: Chat
    #    Then I should see message actions
 
    Scenario: [BHC-T75] View pinned messages
-      Given I am on the chat page
       When I click the view pinned messages button
       Then I should see the pinned messages drawer
    
