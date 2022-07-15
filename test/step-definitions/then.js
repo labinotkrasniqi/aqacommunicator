@@ -2,6 +2,7 @@ import { Then } from '@cucumber/cucumber';
 import LoginPage from '../pageobjects/LoginPage'
 import VideoPage from '../pageobjects/VideoPage'
 import ChatPage from '../pageobjects/ChatPage'
+import DirectoryPage from '../pageobjects/DirectoryPage'
 
 //User login
 Then(/^I should be logged in$/, async () => {
@@ -23,6 +24,18 @@ Then(/^I should be on the logging page$/, async() =>{
 Then(/^The private video call should start$/, async () => {
     const element =  await $('#camera-toggle');
     chaiExpect(element).to.exist; 
+})
+
+Then(/^The call should be successful$/, async () => {
+    chaiExpect(DirectoryPage.activeCallWrapper).to.exist;
+    await Host.pause(5000)
+    DirectoryPage.endCallButton.click()
+})
+
+Then(/^A new tab should be created for the call$/, async () => {
+    await Host.pause(5000)
+    browser.switchWindow('B-hive Video')
+    await expect(Host).toHaveUrlContaining('video');
 })
 
 //Turning camera on and off on the call

@@ -1,18 +1,31 @@
 import { Given } from '@cucumber/cucumber';
 import VideoPage from '../pageobjects/VideoPage'
 import ChatPage from '../pageobjects/ChatPage'
+import DirectoryPage from '../pageobjects/DirectoryPage'
 
+//Close all browsers
+Given(/^I close all windows$/, async () => {
+    await browser.closeWindow()
+    await Host.pause(3000)
+});
+
+Given(/^I switch to the default window$/, async () => {
+    const handles = browser.getWindowHandles();
+    if (handles.length > 1) {
+        browser.switchToWindow(handles[1]);
+        browser.closeWindow();
+        browser.switchToWindow(handles[0]);
+    }
+});
 
 //User login
 Given(/^I'm on the login page$/, async () => {
     await Host.url('https://chat.staging.broadvoice.io/')
-
 });
 
 //User login
 Given(/^I refresh the page$/, async () => {
     await Host.url('https://chat.staging.broadvoice.io/')
-
 });
 
 // User logout
@@ -46,6 +59,15 @@ Given(/^I am in the looby$/, async() =>{
     await Host.pause(10000)
     await Host.switchWindow("https://staging.broadvoice.io/video/Chat.Automation1")
 });
+
+//Directory page
+Given(/^I am on directory page$/, async () => {
+    await ChatPage.directoryButton.click();
+})
+
+Given(/^I navigate to directory page$/, async () => {
+    await ChatPage.navigateToDirectoryPage()
+})
 
 
 Given(/^I search for user$/, async()=>{
