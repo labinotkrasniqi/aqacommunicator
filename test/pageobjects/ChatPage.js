@@ -1,3 +1,5 @@
+import DirectoryPage from "./DirectoryPage"
+
 class ChatPage{
 
     mutedIconImage = '/1f742eff2b40520e537bd68ac208c5aa.svg'
@@ -11,6 +13,14 @@ class ChatPage{
     chatMessage = 'test message'
 
     url = 'https://wwww.labinot.com'
+
+    get directoryButton(){
+        return $('a.link:nth-child(5) > div')
+    }
+
+    get chatButton(){
+        return $('a.link:nth-child(1) > div')
+    }
 
     get searchBar(){
         return $('.default')
@@ -157,6 +167,10 @@ class ChatPage{
         await Host.pause(7000)
         await this.displayedResult.click();
         await Host.pause(5000)
+    }
+
+    async navigateToDirectoryPage() {
+        await this.directoryButton.click()
     }
 }
 export default new ChatPage()

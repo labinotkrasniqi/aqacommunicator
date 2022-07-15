@@ -29,7 +29,16 @@ Feature: Calls
         Then The microphone should change state
 
 
+    Scenario: Outbound voice call from contact in directory
+        Given I refresh the page
+        And I navigate to directory page
+        When I make a voice call to a contact in my directory
+        Then The call should be successful
 
+
+    Scenario: Outbound video call from contact in directory
+        When I make a video call to a contact in my directory
+        Then A new tab should be created for the call
 
 
 

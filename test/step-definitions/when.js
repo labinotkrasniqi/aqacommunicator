@@ -2,6 +2,7 @@ import { When } from '@cucumber/cucumber';
 import LoginPage from '../pageobjects/LoginPage'
 import VideoPage from '../pageobjects/VideoPage'
 import ChatPage from '../pageobjects/ChatPage'
+import DirectoryPage from '../pageobjects/DirectoryPage'
 
 const path = require('path');
 
@@ -51,6 +52,18 @@ When(/^I click on my microphone$/, async() =>{
     await Host.pause(1000)
 });
 
+When(/^I make a voice call to a contact in my directory$/, async() =>{
+    await Host.pause(5000)
+    await DirectoryPage.firstCallButton.click()
+});
+
+When(/^I make a video call to a contact in my directory$/, async() =>{
+    await Host.pause(5000)
+    await DirectoryPage.firstVideoCallButton.click()
+    await Host.pause(5000)
+});
+
+
 When(/^I type a message$/, async()=>{
     await ChatPage.typeMessage("someone");
 })
@@ -63,7 +76,6 @@ When(/^I send an emoji$/, async()=>{
     await ChatPage.messageBox.click()
     browser.keys('🤖')
     await ChatPage.sendMessage();
-
 })
 
 When(/^I click the mute button$/, async()=>{
