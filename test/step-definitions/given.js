@@ -66,6 +66,7 @@ Given(/^I am on directory page$/, async () => {
 })
 
 Given(/^I navigate to directory page$/, async () => {
+    await ChatPage.navigateToChatPage()
     await ChatPage.navigateToDirectoryPage()
 })
 
