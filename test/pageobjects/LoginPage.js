@@ -23,10 +23,24 @@ class LoginPage {
     }
     
     get loginErrorMsg(){
-        return $('#error-element-password')
+        return $('.ulp-input-error-message#error-element-password')
     }
 
+    get forgotPasswordLink(){
+        return $('a.c345ff6e1:nth-child(1)')
+    }
 
+    get backToCommunicatorClientButton(){
+        return $('.c345ff6e1')
+    }
+
+    get editEmailButton(){
+        return $('a.c345ff6e1:nth-child(2)')
+    }
+
+    get showPasswordButton(){
+        return $('button.ca0d25346:nth-child(4)')
+    }
 
 
 //Methods
@@ -39,7 +53,18 @@ class LoginPage {
         await Host.pause(3000)
     }
 
-    
+    async loginWithEmptyEmail(email) {
+        await this.email.setValue(email)
+        await this.sumbitButton.click()
+        await Host.pause(3000)
+    }
+
+    async loginWithOnlyEmail(email) {
+        await this.email.setValue(email)
+        await this.sumbitButton.click()
+        await Host.pause(3000)
+    }
+
     async logout(){
         await Host.pause(3000)
         await this.logoutDropDown.click()
@@ -47,8 +72,10 @@ class LoginPage {
     }
 
     async verifyErrorMsg(){
-        const errorMsg = this.loginErrorMsg.getText()
-        await expect(errorMsg).toHaveText('Wrong username1 or password')
+        const errorMsg = this.loginErrorMsg
+        // await expect(errorMsg).toHaveText('Wrong username or password')
+        chaiExpect(errorMsg).to.exist; 
+        await expect(errorMsg).toHaveTextContaining('Wrong username or password')
     }
 
 }

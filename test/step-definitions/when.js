@@ -15,6 +15,31 @@ When(/^I log in with a test user with invalid credentials$/, async() => {
     await LoginPage.login('qa@poviolabs1.com','RandomPassword')
 });
 
+When(/^I enter a password$/, async() => {
+    await LoginPage.password.setValue('334344443');
+}); 
+
+When(/^I log in with empty username$/, async() => {
+    await LoginPage.loginWithEmptyEmail('')
+}); 
+
+When(/^I proceed with only username$/, async() => {
+    await LoginPage.loginWithOnlyEmail('kosovo@aqacom.com')
+}); 
+
+When(/^I click the forgot password link$/, async() => {
+    await LoginPage.forgotPasswordLink.click();
+}); 
+
+When(/^I click the hide\/show password button$/, async() => {
+    chaiExpect(LoginPage.showPasswordButton).to.exist;
+    await LoginPage.showPasswordButton.click();
+});
+
+When(/^I click back to communicator client button$/, async() => {
+    await LoginPage.backToCommunicatorClientButton.click();
+});
+
 When(/^I log in with Chat1$/, async() =>{
     await LoginPage.login('labinnot.krasniqi+chata1@gmail.com','Cookiemaster!234')
 })
