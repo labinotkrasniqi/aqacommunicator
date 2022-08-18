@@ -135,3 +135,7 @@ Then(/^Password should be visible$/, async() =>{
 Then(/^Password should be hidden$/, async() =>{
     expect(LoginPage.password).toHaveAttribute('type', 'password')
 });
+
+Then(/^The email field should be read only$/, async() =>{
+    expect(LoginPage.email).toHaveAttribute('readonly', '')
+});

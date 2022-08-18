@@ -40,6 +40,9 @@ Feature: Onboarding
       When I click the hide/show password button
       Then Password should be visible
 
+   Scenario: [BHC-T91] Email is not editable on password screen
+      Then The email field should be read only
+
 #  This is blocked due to not being able to try login with the same account without blocking the account
 #  Scenario: User cannot log in with invalid credentials
 #       Given I'm on the login page
