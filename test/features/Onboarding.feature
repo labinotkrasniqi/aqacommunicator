@@ -2,10 +2,15 @@ Feature: Onboarding
 
    #  This feature will contain onboarding tests
 
-   Scenario: [BHC-T11] User cannot log in with empty username and password
+   Scenario: [BHC-T10] User cannot log in with empty username
       Given I'm on the login page
       When I log in with empty username
-      Then I should be on the logging page
+      Then I should be on the login page
+   
+   Scenario: [BHC-T11] User cannot log in with empty password
+      Given I'm on the login page
+      When I proceed with only username
+      Then I should be on the password page
 
    Scenario: [BHC-T2] User can log in with valid credentials
       Given I'm on the login page
@@ -15,7 +20,7 @@ Feature: Onboarding
    Scenario: [BHC-T22] User can logout
       Given I am logged In
       When User logs out
-      Then I should be on the logging page
+      Then I should be on the login page
 
    Scenario: [BHC-T21] Navigate to reset password page
       Given I'm on the login page
@@ -25,7 +30,7 @@ Feature: Onboarding
    
    Scenario: [BHC-T88] Navigate to login page from reset password page
       When I click back to communicator client button
-      Then I should be on the logging page
+      Then I should be on the login page
 
    Scenario: [BHC-T70] Show edit email button on login
       Given I'm on the login page

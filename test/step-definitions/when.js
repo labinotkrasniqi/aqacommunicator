@@ -23,6 +23,10 @@ When(/^I log in with empty username$/, async() => {
     await LoginPage.loginWithEmptyEmail('')
 }); 
 
+When(/^I log in with empty password$/, async() => {
+    await LoginPage.loginWithEmptyPassword('')
+}); 
+
 When(/^I proceed with only username$/, async() => {
     await LoginPage.loginWithOnlyEmail('kosovo@aqacom.com')
 }); 

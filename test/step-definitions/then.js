@@ -16,7 +16,7 @@ Then(/^I should see an invalid password error$/, async () => {
 
 
 // User logout
-Then(/^I should be on the logging page$/, async() =>{
+Then(/^I should be on the login page$/, async() =>{
     await expect(Host).toHaveUrlContaining('login');
 })
 
@@ -138,4 +138,8 @@ Then(/^Password should be hidden$/, async() =>{
 
 Then(/^The email field should be read only$/, async() =>{
     expect(LoginPage.email).toHaveAttribute('readonly', '')
+});
+
+Then(/^I should be on the password page$/, async() =>{
+    expect(LoginPage.password).toExist()
 });

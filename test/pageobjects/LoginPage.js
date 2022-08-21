@@ -1,5 +1,10 @@
 class LoginPage {
 
+    async randomEmail() {
+        const username = Math.floor(Math.random() * 100000)
+        return (username + '@gmail.com')
+    }
+
     get email() {
         return $('#username');
     }
@@ -55,6 +60,12 @@ class LoginPage {
 
     async loginWithEmptyEmail(email) {
         await this.email.setValue(email)
+        await this.sumbitButton.click()
+        await Host.pause(3000)
+    }
+
+    async loginWithEmptyPassword(password) {
+        await this.password.setValue(password)
         await this.sumbitButton.click()
         await Host.pause(3000)
     }
