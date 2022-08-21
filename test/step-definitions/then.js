@@ -10,13 +10,13 @@ Then(/^I should be logged in$/, async () => {
     await expect(Host).toHaveUrlContaining('chat')
 });
 
-Then(/^Login is unsucessful$/, async () => {
+Then(/^I should see an invalid password error$/, async () => {
     await LoginPage.verifyErrorMsg()
 });
 
 
 // User logout
-Then(/^I should be on the logging page$/, async() =>{
+Then(/^I should be on the login page$/, async() =>{
     await expect(Host).toHaveUrlContaining('login');
 })
 
@@ -118,4 +118,28 @@ Then(/^I should see clicked message in the chat history$/, async() =>{
 
 Then(/^I should see my sent message in chat history$/, async() =>{
     expect(ChatPage.conversationContainer).toHaveTextContaining(ChatPage.chatMessage)
+});
+
+Then(/^I should be on the reset password page$/, async() =>{
+    await expect(Host).toHaveUrlContaining('reset-password');
+});
+
+Then(/^I should see the edit email button$/, async() =>{
+    chaiExpect(LoginPage.editEmailButton).to.exist;
+});
+
+Then(/^Password should be visible$/, async() =>{
+    expect(LoginPage.password).toHaveAttribute('type', 'text')
+});
+
+Then(/^Password should be hidden$/, async() =>{
+    expect(LoginPage.password).toHaveAttribute('type', 'password')
+});
+
+Then(/^The email field should be read only$/, async() =>{
+    expect(LoginPage.email).toHaveAttribute('readonly', '')
+});
+
+Then(/^I should be on the password page$/, async() =>{
+    expect(LoginPage.password).toExist()
 });
