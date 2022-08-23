@@ -1,6 +1,6 @@
 Feature: Onboarding
 
-   #  This feature will contain onboarding tests
+   #  This feature contains onboarding tests
 
    Scenario: [BHC-T10] User cannot log in with empty username
       Given I'm on the login page
@@ -48,8 +48,7 @@ Feature: Onboarding
    Scenario: [BHC-T91] Email is not editable on password screen
       Then The email field should be read only
 
-#  This is blocked due to not being able to try login with the same account without blocking the account
-#  Scenario: User cannot log in with invalid credentials
-#       Given I'm on the login page
-#       When I log in with a test user with invalid credentials
-#       Then Login is unsucessful
+   Scenario: [BHC-T3] User cannot log in with invalid credentials
+      Given I'm on the login page
+      When I log in with a test user with invalid credentials
+      Then I should see an invalid password error
