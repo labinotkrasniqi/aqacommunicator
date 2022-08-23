@@ -5,6 +5,11 @@ import ChatPage from '../pageobjects/ChatPage'
 import DirectoryPage from '../pageobjects/DirectoryPage'
 
 const path = require('path');
+const randomPassword = '334344443';
+function randomEmail() {
+    const username = Math.floor(Math.random() * 100000)
+    return (username + '@gmail.com')
+}
 
 //User login
 When(/^I log in with a test user$/, async () => {
@@ -12,11 +17,11 @@ When(/^I log in with a test user$/, async () => {
 });
 
 When(/^I log in with a test user with invalid credentials$/, async() => {
-    await LoginPage.login('qa@poviolabs1.com','RandomPassword')
+    await LoginPage.login(randomEmail(), randomPassword)
 });
 
 When(/^I enter a password$/, async() => {
-    await LoginPage.password.setValue('334344443');
+    await LoginPage.password.setValue(randomPassword);
 }); 
 
 When(/^I log in with empty username$/, async() => {
