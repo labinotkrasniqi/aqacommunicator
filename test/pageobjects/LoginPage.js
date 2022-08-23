@@ -1,10 +1,5 @@
 class LoginPage {
 
-    async randomEmail() {
-        const username = Math.floor(Math.random() * 100000)
-        return (username + '@gmail.com')
-    }
-
     get email() {
         return $('#username');
     }
@@ -84,9 +79,7 @@ class LoginPage {
 
     async verifyErrorMsg(){
         const errorMsg = this.loginErrorMsg
-        // await expect(errorMsg).toHaveText('Wrong username or password')
-        chaiExpect(errorMsg).to.exist; 
-        await expect(errorMsg).toHaveTextContaining('Wrong username or password')
+        chaiExpect(errorMsg).to.exist;
     }
 
 }
