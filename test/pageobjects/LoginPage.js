@@ -27,19 +27,19 @@ class LoginPage {
     }
 
     get forgotPasswordLink(){
-        return $('a.c345ff6e1:nth-child(1)')
+        return $('a.ce3b5f436:nth-child(1)')
     }
 
     get backToCommunicatorClientButton(){
-        return $('.c345ff6e1')
+        return $('.ce3b5f436')
     }
 
     get editEmailButton(){
-        return $('a.c345ff6e1:nth-child(2)')
+        return $('a.ce3b5f436:nth-child(2)')
     }
 
     get showPasswordButton(){
-        return $('button.ca0d25346:nth-child(4)')
+        return $('button.cc826122b:nth-child(4)')
     }
 
 
